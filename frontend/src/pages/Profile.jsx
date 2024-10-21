@@ -130,7 +130,7 @@ function Profile() {
     try {
       dispatch(signOutUserStart());
       const { data } = await axios.get(
-        "http://localhost:3000/api/auth/signout"
+        "https://real-estate-project-q6vq.onrender.com/api/auth/signout"
       );
       if (data.success === false) {
         dispatch(deleteUserFailure(data.message));
