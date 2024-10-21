@@ -103,15 +103,15 @@ function Profile() {
   };
 
   const handleDeleteUser = async () => {
-    console.log("User ID:", currentUser._id); // Check if ID is present
+    console.log("User ID:", currentUser._id);
     try {
       dispatch(deleteUserStart());
-      const token = currentUser.token; // Ensure the token is correctly set
+      const token = currentUser.token;
       const { data } = await axios.delete(
         `https://real-estate-project-q6vq.onrender.com/api/user/delete/${currentUser._id}`,
         {
           headers: {
-            Authorization: `Bearer ${token}`, // Include the JWT token
+            Authorization: `Bearer ${token}`,
           },
         }
       );
@@ -155,17 +155,22 @@ function Profile() {
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`, // Include the JWT token
+            Authorization: `Bearer ${token}`,
           },
         }
       );
 
-      if (data.success === false) {
+      console.log("listing", data);
+
+      const listings = data.listings || data; // Adjust based on the structure of the response
+
+      if (!listings || listings.length === 0) {
         setShowListingsError(true);
+        console.log("not working");
         return;
       }
 
-      setUserListings(data.listings);
+      setUserListings(listings); // Set the listings array
     } catch (error) {
       setShowListingsError(true);
     }
@@ -173,11 +178,12 @@ function Profile() {
 
   const handleListingDelete = async (listingId) => {
     try {
+      const token = currentUser.token || localStorage.getItem("token");
       const { data } = await axios.delete(
         `https://real-estate-project-q6vq.onrender.com/api/listing/delete/${listingId}`,
         {
           headers: {
-            Authorization: `Bearer ${token}`, // Include the JWT token
+            Authorization: `Bearer ${token}`,
           },
         }
       );
