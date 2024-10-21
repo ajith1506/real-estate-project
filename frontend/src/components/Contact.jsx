@@ -11,7 +11,9 @@ function Contact({ listing }) {
   useEffect(() => {
     const fetchland = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/api/user/${listing}`);
+        const res = await fetch(
+          `https://real-estate-project-q6vq.onrender.com/api/user/${listing}`
+        );
         const data = await res.json();
         setLand(data);
       } catch (error) {

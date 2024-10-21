@@ -37,7 +37,7 @@ const UpdateListing = () => {
     const fetchListing = async () => {
       const listingId = params.listingId;
       const res = await fetch(
-        `http://localhost:3000/api/listing/get/${listingId}`
+        `https://real-estate-project-q6vq.onrender.com/api/listing/get/${listingId}`
       );
       const data = await res.json();
       if (data.success === false) {
@@ -154,7 +154,7 @@ const UpdateListing = () => {
       setError(false);
 
       const res = await fetch(
-        `http://localhost:3000/api/listing/update/${params.listingId}`,
+        `https://real-estate-project-q6vq.onrender.com/api/listing/update/${params.listingId}`,
         {
           method: "POST",
           headers: {

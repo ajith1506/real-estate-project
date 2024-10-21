@@ -32,7 +32,7 @@ function Listing() {
       try {
         setLoading(true);
         const res = await fetch(
-          `http://localhost:3000/api/listing/get/${params.listingId}`
+          `https://real-estate-project-q6vq.onrender.com/api/listing/get/${params.listingId}`
         );
         const data = await res.json();
         if (data.success === false) {

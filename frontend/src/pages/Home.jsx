@@ -28,7 +28,7 @@ function Home() {
     const fetchRentListings = async () => {
       try {
         const res = await fetch(
-          "http://localhost:3000/api/listing/get?type=rent&limit=4"
+          "https://real-estate-project-q6vq.onrender.com/api/listing/get?type=rent&limit=4"
         );
         const data = await res.json();
         setRentListings(data);
@@ -41,7 +41,7 @@ function Home() {
     const fetchSaleListings = async () => {
       try {
         const res = await fetch(
-          "http://localhost:3000/api/listing/get?type=sale&limit=4"
+          "https://real-estate-project-q6vq.onrender.com/api/listing/get?type=sale&limit=4"
         );
         const data = await res.json();
         setSaleListings(data);

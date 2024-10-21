@@ -81,7 +81,7 @@ function Profile() {
       }
 
       const { data } = await axios.put(
-        `http://localhost:3000/api/user/update/${currentUser._id}`,
+        `https://real-estate-project-q6vq.onrender.com/api/user/update/${currentUser._id}`,
         formData,
         {
           headers: {
@@ -108,7 +108,7 @@ function Profile() {
       dispatch(deleteUserStart());
       const token = currentUser.token; // Ensure the token is correctly set
       const { data } = await axios.delete(
-        `http://localhost:3000/api/user/delete/${currentUser._id}`,
+        `https://real-estate-project-q6vq.onrender.com/api/user/delete/${currentUser._id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`, // Include the JWT token
@@ -151,7 +151,7 @@ function Profile() {
         throw new Error("No token found");
       }
       const { data } = await axios.get(
-        `http://localhost:3000/api/user/listings/${currentUser._id}`,
+        `https://real-estate-project-q6vq.onrender.com/api/user/listings/${currentUser._id}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -174,7 +174,7 @@ function Profile() {
   const handleListingDelete = async (listingId) => {
     try {
       const { data } = await axios.delete(
-        `http://localhost:3000/api/listing/delete/${listingId}`,
+        `https://real-estate-project-q6vq.onrender.com/api/listing/delete/${listingId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`, // Include the JWT token

@@ -119,7 +119,7 @@ const Search = () => {
     urlParams.set("startIndex", startIndex);
     const searchQuery = urlParams.toString();
     const res = await fetch(
-      `http://localhost:3000/api/listing/get?${searchQuery}`
+      `https://real-estate-project-q6vq.onrender.com/api/listing/get?${searchQuery}`
     );
     const data = await res.json();
     if (data.length < 9) {
