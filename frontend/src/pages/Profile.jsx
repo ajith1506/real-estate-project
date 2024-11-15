@@ -155,7 +155,7 @@ function Profile() {
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
+            authorization: `Bearer ${token}`,
           },
         }
       );
@@ -183,7 +183,7 @@ function Profile() {
         `https://real-estate-project-q6vq.onrender.com/api/listing/delete/${listingId}`,
         {
           headers: {
-            Authorization: `Bearer ${token}`,
+            authorization: `Bearer ${token}`,
           },
         }
       );
